@@ -1,0 +1,14 @@
+galaxy_info:
+  author: mariojmdavid@gmail.com
+  description: disvis and powerfit applications
+  company: LIP and INDIGO-DataCloud
+  license: Apache
+  min_ansible_version: 2.0
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  galaxy_tags:
+  - disvis
+  - powerfit
+dependencies: []

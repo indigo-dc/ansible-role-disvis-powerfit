@@ -1,0 +1,67 @@
+---
+- name: Install necessary packages
+  apt: name={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - build-essential
+    - cmake
+    - gcc
+    - git
+    - libffi-dev
+    - libfftw3-double3
+    - libfftw3-single3
+    - libfftw3-long3
+    - libfftw3-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - python-dev
+    - python-pip
+    - software-properties-common
+    - tar
+    - wget
+
+- name: clone git repositories
+  git: repo={{ item.repo }} dest={{ item.dest }} clone=yes
+  with_items:
+    - { repo: "https://github.com/haddocking/{{ haddock_app }}.git", dest: "/usr/local/{{ haddock_app }}" }
+    - { repo: "https://github.com/clMathLibraries/clFFT.git", dest: "/usr/local/clFFT" }
+    - { repo: "https://github.com/geggo/gpyfft.git", dest: "/usr/local/gpyfft" }
+
+- name: wget nvidia driver
+  get_url: url={{ nvidia_url }} dest=/usr/local mode=700
+
+- name: unarchive opencl headers
+  unarchive: src={{ opencl_url }} dest=/usr/include copy=no
+
+- name: install nvidia driver
+  command: ./{{ nvidia_driver }} -s --no-kernel-module chdir=/usr/local
+
+- name: install clFFT - configure
+  command: cmake CMakeLists.txt chdir=/usr/local/clFFT/src
+  environment:
+    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
+
+- name: make install clFFT
+  command: make install chdir=/usr/local/clFFT/src
+  environment:
+    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
+
+- name: pip install python modules
+  pip: name={{ item }} state=latest
+  with_items:
+    - pip
+    - Cython
+    - mako
+    - numpy
+    - scipy
+    - virtualenv
+    - pyfftw
+
+- name: pip install pyopencl==2015.1
+  pip: name=pyopencl version=2015.1 state=present
+
+- name: pip install gpyfft and {{ haddock_app }}
+  pip: name={{ item }} state=present
+  with_items:
+    - "file:///usr/local/gpyfft"
+    - "file:///usr/local/{{ haddock_app }}"
+
