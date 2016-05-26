@@ -21,7 +21,7 @@ about them are as follows.
 
 1. NVIDIA driver version
    * nvidia_driver_version: Default = 352.93
-2. Haddocking application: <disvis | powerfit>
+2. Haddocking application: disvis or powerfit
    * haddock_app: Default = disvis
 3. Variables related to NVIDIA url and executable
    * base_url: Default = http://us.download.nvidia.com/XFree86/Linux-x86_64
