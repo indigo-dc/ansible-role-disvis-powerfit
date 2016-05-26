@@ -1,0 +1,14 @@
+---
+# NVIDIA driver version
+nvidia_driver_version: 352.93
+
+# Haddocking application: disvis or powerfit
+haddock_app: disvis
+
+# Variables related to NVIDIA url and executable
+base_url: http://us.download.nvidia.com/XFree86/Linux-x86_64
+nvidia_driver: "NVIDIA-Linux-x86_64-{{ nvidia_driver_version }}.run"
+nvidia_url: "{{ base_url }}/{{ nvidia_driver_version }}/{{ nvidia_driver }}"
+
+# URL with opencl headers
+opencl_url: http://www.lip.pt/~david/cl_include.tgz
