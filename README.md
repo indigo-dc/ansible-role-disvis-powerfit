@@ -1,12 +1,24 @@
-Role for disvis and powerfit application
-========================================
+Role and Dockerfile for disvis and powerfit application
+=======================================================
 
-A test role to install the disvis or powerfit application from:
+Roles and Dockerfiles to install the disvis or powerfit application:
 
 * https://github.com/haddocking/disvis.git
 * https://github.com/haddocking/powerfit.git
 
 The application can be chosen from a role variable.
+
+Introduction
+------------
+
+The repository contains ansible-roles that are published in
+ansible galaxy: https://galaxy.ansible.com/indigo-dc/disvis-powerfit/
+
+The directories docker-disvis and docker-powerfit are linked to
+dockerhub with automatic build of those 2 images. These images can run
+disvis or powerfit either in CPUs, or in GPUs, the NVIDIA driver version
+is show below in the the ansible-role default variable
+*nvidia_driver_version*
 
 Requirements
 ------------
