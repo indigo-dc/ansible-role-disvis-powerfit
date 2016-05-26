@@ -1,5 +1,5 @@
-Role for disvis application
-===========================
+Role for disvis and powerfit application
+========================================
 
 A test role to install the disvis or powerfit application from:
 
