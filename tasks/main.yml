@@ -37,12 +37,12 @@
 
 - name: install clFFT - configure
   command: cmake CMakeLists.txt chdir=/usr/local/clFFT/src
-  environment:
+  env:
     LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
 
 - name: make install clFFT
   command: make install chdir=/usr/local/clFFT/src
-  environment:
+  env:
     LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
 
 - name: pip install python modules
