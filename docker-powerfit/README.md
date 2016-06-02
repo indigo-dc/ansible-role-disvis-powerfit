@@ -38,14 +38,12 @@ The docker containes the opencl application hosted in:
 * https://github.com/haddocking/powerfit
 
 Read section "Options" for examples to run the application. 
-
-THIS PART TO be completed
-
 To run the powerfit in CPUs, you can instantiate the container:
 
 ```
 $ docker run -it indigodatacloudapps/powerfit /bin/bash
-#
+# cd /home
+# ./run-powerfitCPU.sh
 ```
 
 To run the powerfit in GPU, you can instantiate the container and import the
@@ -58,7 +56,8 @@ $ docker run \
     --device=/dev/nvidia-uvm:/dev/nvidia-uvm \
     -it \
     indigodatacloudapps/powerfit /bin/bash
-#
+# cd /home
+# ./run-powerfitGPU.sh
 ```
 
 License

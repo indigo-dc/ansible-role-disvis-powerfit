@@ -102,7 +102,7 @@ $ export EX_DIR=/usr/local/disvis/test-cases/PRE5-PUP2-complex
 $ disvis ${EX_DIR}/O14250.pdb ${EX_DIR}/Q9UT97.pdb ${EX_DIR}/restraints.dat -p 2 -a 20.0 -vs 2 -d /home/out
 ```
 
-To run in the GPU
+To run in the GPU:
 
 ```
 $ cd /home
@@ -110,6 +110,23 @@ $ mkdir out
 $ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/lib64
 $ export EX_DIR=/usr/local/disvis/test-cases/PRE5-PUP2-complex
 $ disvis ${EX_DIR}/O14250.pdb ${EX_DIR}/Q9UT97.pdb ${EX_DIR}/restraints.dat -g -a 20.0 -vs 2 -d /home/out
+```
+
+Run the powerfit application
+----------------------------
+
+The example runs powerfit on the CPU with 2 threads:
+
+```
+$ cd /home
+$ ./run-powerfitCPU.sh
+```
+
+To run in the GPU:
+
+```
+$ cd /home
+$ ./run-powerfitGPU.sh
 ```
 
 License
