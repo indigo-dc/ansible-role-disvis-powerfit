@@ -65,3 +65,5 @@
     - "file:///usr/local/gpyfft"
     - "file:///usr/local/{{ haddock_app }}"
 
+- name: unarchive powerfit examples
+  unarchive: src=http://www.lip.pt/~david/powerfit-example.tgz dest=/usr/local/powerfit-example copy=no
