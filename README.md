@@ -1,3 +1,5 @@
+[![License](http://img.shields.io/:license-apache-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
 Role and Dockerfile for disvis and powerfit application
 =======================================================
 
@@ -137,8 +139,11 @@ Apache v2
 Author Information
 ------------------
 
-Mario David: mariojmdavid@gmail.com
-LIP and Indigo-DataCloud project
+Mario David: <mariojmdavid@gmail.com>
+
+LIP Lisbon: http://www.lip.pt
+
+Indigo DataCloud: https://www.indigo-datacloud.eu/
 
 Acknowledgments
 ---------------

@@ -3,7 +3,7 @@
 nvidia_driver_version: 352.93
 
 # Haddocking application: disvis or powerfit
-haddock_app: disvis
+haddock_app: powerfit
 
 # Variables related to NVIDIA url and executable
 base_url: http://us.download.nvidia.com/XFree86/Linux-x86_64
