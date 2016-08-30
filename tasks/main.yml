@@ -58,11 +58,11 @@
 
 - name: pip install pyopencl==2015.1 when disvis
   pip: name=pyopencl version=2015.1 state=present
-  when: {{ haddock_app }} == 'disvis'
+  when: haddock_app == "disvis"
 
 - name: pip install pyopencl when powerfit
   pip: name=pyopencl
-  when: {{ haddock_app }} == 'powerfit'
+  when: haddock_app == "powerfit"
 
 - name: pip install gpyfft and {{ haddock_app }}
   pip: name={{ item }} state=present
