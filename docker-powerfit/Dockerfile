@@ -1,7 +1,8 @@
-# docker build -t powerfit .
+# docker build --rm -t powerfit .
 
 FROM indigodatacloud/ubuntu-sshd:14.04
 MAINTAINER Mario David <mariojmdavid@gmail.com>
+LABEL description="Run Powerfit application"
 
 RUN ansible-galaxy install indigo-dc.disvis-powerfit && \
     ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/powerfit.yml

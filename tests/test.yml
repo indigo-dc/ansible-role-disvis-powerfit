@@ -1,4 +1,5 @@
 ---
 - hosts: localhost
   roles:
-    - { role: ansible-role-disvis-powerfit, nvidia_driver_version: 352.93, haddock_app: powerfit }
+    - ansible-role-disvis-powerfit
+

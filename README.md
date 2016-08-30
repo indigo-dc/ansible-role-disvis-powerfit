@@ -140,8 +140,11 @@ Apache v2
 Author Information
 ------------------
 
-Mario David: mariojmdavid@gmail.com
-LIP and Indigo-DataCloud project
+Mario David: <mariojmdavid@gmail.com>
+
+LIP Lisbon: http://www.lip.pt
+
+Indigo DataCloud: https://www.indigo-datacloud.eu/
 
 Acknowledgments
 ---------------
