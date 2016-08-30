@@ -1,4 +1,5 @@
 [![License](http://img.shields.io/:license-apache-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![Build Status](https://travis-ci.org/indigo-dc/ansible-role-disvis-powerfit.svg?branch=master)](https://travis-ci.org/indigo-dc/ansible-role-disvis-powerfit)
 
 Role and Dockerfile for disvis and powerfit application
 =======================================================

@@ -66,8 +66,13 @@
     - virtualenv
     - pyfftw
 
-- name: pip install pyopencl==2015.1
+- name: pip install pyopencl==2015.1 when disvis
   pip: name=pyopencl version=2015.1 state=present
+  when: haddock_app == "disvis"
+
+- name: pip install pyopencl when powerfit
+  pip: name=pyopencl
+  when: haddock_app == "powerfit"
 
 - name: pip install gpyfft
   pip: name="git+https://github.com/geggo/gpyfft.git" editable=false state=present
