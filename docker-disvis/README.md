@@ -1,3 +1,6 @@
+[![License](http://img.shields.io/:license-apache-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![](https://images.microbadger.com/badges/image/indigodatacloudapps/disvis.svg)](http://microbadger.com/images/indigodatacloudapps/disvis "Get your own image badge on microbadger.com")
+
 docker-disvis
 =============
 
