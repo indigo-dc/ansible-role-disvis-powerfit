@@ -74,7 +74,7 @@ An example of playbook for the disvis:
 Or execute:
 
 ```
-$ ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/test-disvis.yml
+$ ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/disvis.yml
 ```
 
 An example of playbook for the powerfit:
@@ -89,7 +89,7 @@ An example of playbook for the powerfit:
 Or execute:
 
 ```
-$ ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/test-powerfit.yml
+$ ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/powerfit.yml
 ```
 
 Run the disvis application

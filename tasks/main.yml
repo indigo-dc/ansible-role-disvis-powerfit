@@ -1,6 +1,6 @@
 ---
 - name: Install necessary packages
-  apt: name={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: name={{ item }} state=latest update_cache=yes
   with_items:
     - build-essential
     - cmake
@@ -31,7 +31,7 @@
   when: haddock_app == "powerfit"
 
 - name: clone git repositories disvis
-  git: repo={{ item.repo }} dest={{ item.dest }} clone=yes
+  git: repo={{ item.repo }} dest={{ item.dest }} version="gpu-implementation" clone=yes
   with_items:
     - { repo: "https://github.com/haddocking/{{ haddock_app }}.git", dest: "/usr/local/{{ haddock_app }}" }
   when: haddock_app == "disvis"
@@ -66,13 +66,13 @@
     - virtualenv
     - pyfftw
 
-- name: pip install pyopencl==2015.1 when disvis
-  pip: name=pyopencl version=2015.1 state=present
-  when: haddock_app == "disvis"
+#- name: pip install pyopencl==2015.1 when disvis
+#  pip: name=pyopencl version=2015.1 state=present
+#  when: haddock_app == "disvis"
 
-- name: pip install pyopencl when powerfit
+- name: pip install pyopencl
   pip: name=pyopencl
-  when: haddock_app == "powerfit"
+#  when: haddock_app == "powerfit"
 
 - name: pip install gpyfft
   pip: name="git+https://github.com/geggo/gpyfft.git" editable=false state=present
