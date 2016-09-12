@@ -2,10 +2,11 @@
 - name: Install necessary packages
   apt: name={{ item }} state=latest update_cache=yes
   with_items:
-    - build-essential
     - cmake
-    - gcc
-    - git
+    - cython
+    - libclfft-bin
+    - libclfft-dev
+    - libclfft2
     - libffi-dev
     - libfftw3-double3
     - libfftw3-single3
@@ -13,66 +14,22 @@
     - libfftw3-dev
     - libxml2-dev
     - libxslt1-dev
-    - python-dev
-    - python-pip
-    - software-properties-common
-    - tar
-    - wget
+    - python-mako
+    - python-numpy
+    - python-pyfftw
+    - python-scipy
+    - python-virtualenv
 
-- name: clone git repositories
+- name: clone git repositories disvis or powerfit
   git: repo={{ item.repo }} dest={{ item.dest }} clone=yes
   with_items:
-    - { repo: "https://github.com/clMathLibraries/clFFT.git", dest: "/usr/local/clFFT" }
-
-- name: clone git repositories powerfit
-  git: repo={{ item.repo }} dest={{ item.dest }} version="redo-rotation" clone=yes
-  with_items:
     - { repo: "https://github.com/haddocking/{{ haddock_app }}.git", dest: "/usr/local/{{ haddock_app }}" }
-  when: haddock_app == "powerfit"
-
-- name: clone git repositories disvis
-  git: repo={{ item.repo }} dest={{ item.dest }} version="gpu-implementation" clone=yes
-  with_items:
-    - { repo: "https://github.com/haddocking/{{ haddock_app }}.git", dest: "/usr/local/{{ haddock_app }}" }
-  when: haddock_app == "disvis"
-
-- name: wget nvidia driver
-  get_url: url={{ nvidia_url }} dest=/usr/local mode=700
 
 - name: unarchive opencl headers
   unarchive: src={{ opencl_url }} dest=/usr/include copy=no
 
-- name: install nvidia driver
-  command: ./{{ nvidia_driver }} -s --no-kernel-module chdir=/usr/local
-
-- name: install clFFT - configure
-  command: cmake CMakeLists.txt chdir=/usr/local/clFFT/src
-  env:
-    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
-
-- name: make install clFFT
-  command: make install chdir=/usr/local/clFFT/src
-  env:
-    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
-
-- name: pip install python modules
-  pip: name={{ item }} state=latest
-  with_items:
-    - pip
-    - Cython
-    - mako
-    - numpy
-    - scipy
-    - virtualenv
-    - pyfftw
-
-#- name: pip install pyopencl==2015.1 when disvis
-#  pip: name=pyopencl version=2015.1 state=present
-#  when: haddock_app == "disvis"
-
 - name: pip install pyopencl
   pip: name=pyopencl
-#  when: haddock_app == "powerfit"
 
 - name: pip install gpyfft
   pip: name="git+https://github.com/geggo/gpyfft.git" editable=false state=present

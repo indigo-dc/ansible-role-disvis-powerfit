@@ -6,16 +6,24 @@ docker-powerfit
 
 Dockerfile to run powerfit on CPUs or GPUs
 
-
 Introduction
 ------------
 
 The image is built from the ansible-role of the following github repository:
 * https://github.com/indigo-dc/ansible-role-disvis-powerfit
 
+Dependencies: Base image
+------------------------
+
+The base image is now one that has the nvidia driver.
+
+* https://hub.docker.com/r/lipcomputing/nvidia-ubuntu16.04/
+
 The NVIDIA driver version of the image has to match the one on the physical
 machine. The ansible-role repository shows the version with which the current
-image is built.
+image is built. The details maybe found in:
+
+* https://github.com/LIP-Computing/ansible-role-nvidia
 
 The ansible-role has a variable which is the NVDIDIA driver, as such if you
 have a different version you will have to can run the ansible-role specifying
