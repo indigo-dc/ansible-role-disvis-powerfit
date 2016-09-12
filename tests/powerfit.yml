@@ -1,4 +1,4 @@
 ---
 - hosts: localhost
   roles:
-    - { role: indigo-dc.disvis-powerfit, nvidia_driver_version: 352.93, haddock_app: powerfit }
+    - { role: indigo-dc.disvis-powerfit, haddock_app: powerfit }

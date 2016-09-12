@@ -1,6 +1,6 @@
 # docker build --rm -t powerfit .
 
-FROM indigodatacloud/ubuntu-sshd:14.04
+FROM lipcomputing/nvidia-ubuntu16.04
 MAINTAINER Mario David <mariojmdavid@gmail.com>
 LABEL description="Run Powerfit application"
 

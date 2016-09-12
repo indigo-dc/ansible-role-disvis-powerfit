@@ -1,6 +1,6 @@
 # docker build -t disvis .
 
-FROM indigodatacloud/ubuntu-sshd:14.04
+FROM lipcomputing/nvidia-ubuntu16.04
 MAINTAINER Mario David <mariojmdavid@gmail.com>
 
 RUN ansible-galaxy install indigo-dc.disvis-powerfit && \

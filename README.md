@@ -26,7 +26,12 @@ is show below in the the ansible-role default variable
 Requirements
 ------------
 
-No aditional requirements
+The role LIP-Computing.ansible-role-nvidia should be run before in order
+to install the nvidia driver and is hosted in the repository:
+
+* https://github.com/LIP-Computing/ansible-role-nvidia
+
+Check the README to install and run the role
 
 Role Variables
 --------------
@@ -34,21 +39,10 @@ Role Variables
 The variables that can be passed to this role and a brief description
 about them are as follows.
 
-1. NVIDIA driver version
-   * nvidia_driver_version: Default = 352.93
-2. Haddocking application: disvis or powerfit
+1. Haddocking application: disvis or powerfit
    * haddock_app: Default = disvis
-3. Variables related to NVIDIA url and executable
-   * base_url: Default = http://us.download.nvidia.com/XFree86/Linux-x86_64
-   * nvidia_driver: Default = NVIDIA-Linux-x86_64-{{ nvidia_driver_version }}.run
-   * nvidia_url: Default = {{ base_url }}/{{ nvidia_driver_version }}/{{ nvidia_driver }}
-4. URL with opencl headers
+2. URL with opencl headers
    * opencl_url: Default = http://www.lip.pt/~david/cl_include.tgz
-
-Dependencies
-------------
-
-None for now
 
 Install the Playbook
 --------------------
