@@ -20,12 +20,6 @@
     - python-scipy
     - python-virtualenv
 
-# Try the install from packages instead of the git
-#- name: clone git repositories
-#  git: repo={{ item.repo }} dest={{ item.dest }} clone=yes
-#  with_items:
-#    - { repo: "https://github.com/clMathLibraries/clFFT.git", dest: "/usr/local/clFFT" }
-
 - name: clone git repositories disvis or powerfit
   git: repo={{ item.repo }} dest={{ item.dest }} clone=yes
   with_items:
@@ -33,21 +27,6 @@
 
 - name: unarchive opencl headers
   unarchive: src={{ opencl_url }} dest=/usr/include copy=no
-
-#- name: install clFFT - configure
-#  command: cmake CMakeLists.txt chdir=/usr/local/clFFT/src
-#  env:
-#    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
-
-#- name: make install clFFT
-#  command: make install chdir=/usr/local/clFFT/src
-#  env:
-#    LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu
-
-#- name: pip install python modules
-#  pip: name={{ item }} state=latest
-#  with_items:
-#    - Cython
 
 - name: pip install pyopencl
   pip: name=pyopencl
