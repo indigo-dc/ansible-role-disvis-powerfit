@@ -30,6 +30,12 @@ The ansible-role has a variable which is the NVDIDIA driver, as such if you
 have a different version you will have to can run the ansible-role specifying
 the correct version.
 
+The NVIDIA driver version is tagged in the docker image as follows
+
+* TAG = nvdrv_352.93 : nvidia driver version 352.93
+* TAG = nvdrv_352.99 : nvidia driver version 352.99
+
+
 Build docker image
 ------------------
 
