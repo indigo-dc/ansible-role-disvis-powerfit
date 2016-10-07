@@ -1,6 +1,6 @@
 # docker build --rm -t powerfit .
 
-FROM lipcomputing/nvidia-ubuntu16.04
+FROM lipcomputing/nvidia-ubuntu16.04:nvdrv_367.48
 MAINTAINER Mario David <mariojmdavid@gmail.com>
 LABEL description="Run Powerfit application"
 
