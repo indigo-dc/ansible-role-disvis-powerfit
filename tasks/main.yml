@@ -28,13 +28,16 @@
 - name: unarchive opencl headers
   unarchive: src={{ opencl_url }} dest=/usr/include copy=no
 
-- name: pip install pyopencl
-  pip: name=pyopencl
+- name: pip install pyopencl upgrade Cython
+  pip: name={{ item }} state=latest
+  with_items:
+    - Cython
+    - pyopencl
 
 - name: pip install gpyfft
   pip: name="git+https://github.com/geggo/gpyfft.git" editable=false state=present
 
-- name: pip install gpyfft and {{ haddock_app }}
+- name: pip install {{ haddock_app }}
   pip: name={{ item }} state=present
   with_items:
     - "file:///usr/local/{{ haddock_app }}"
