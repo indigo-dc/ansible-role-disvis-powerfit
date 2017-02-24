@@ -1,6 +1,6 @@
 # docker build -t disvis .
 
-FROM lipcomputing/nvidia-ubuntu16.04:nvdrv_375.20
+FROM lipcomputing/nvidia-ubuntu16.04:nvdrv_375.39
 MAINTAINER Mario David <mariojmdavid@gmail.com>
 LABEL description="Run Disvis application"
 
