@@ -13,4 +13,4 @@ haddock_app: powerfit
 
 
 # URL with opencl headers
-opencl_url: http://www.lip.pt/~david/cl_include.tgz
+opencl_url: http://www.lip.pt/people/david/cl_include.tgz
