@@ -21,7 +21,7 @@
     - python-virtualenv
 
 - name: clone git repositories disvis or powerfit
-  git: repo={{ item.repo }} dest={{ item.dest }} clone=yes
+  git: repo={{ item.repo }} dest={{ item.dest }} version={{ app_version }} clone=yes
   with_items:
     - { repo: "https://github.com/haddocking/{{ haddock_app }}.git", dest: "/usr/local/{{ haddock_app }}" }
 

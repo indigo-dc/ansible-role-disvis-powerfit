@@ -28,8 +28,10 @@ RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
 RUN echo "jenkins ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 ## Deployment
+ARG github_tag=master
+
 RUN ansible-galaxy install indigo-dc.disvis-powerfit && \
-    ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/disvis.yml
+    ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/disvis.yml --extra-vars "app_version=$github_tag"
 
 EXPOSE 22
 CMD    /etc/init.d/vmcontext start; /usr/sbin/sshd -D
