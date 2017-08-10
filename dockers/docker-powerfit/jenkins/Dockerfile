@@ -29,7 +29,7 @@ RUN echo "jenkins ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 ## Deployment
 RUN ansible-galaxy install indigo-dc.disvis-powerfit && \
-    ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/disvis.yml
+    ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/powerfit.yml
 
 EXPOSE 22
 CMD    /etc/init.d/vmcontext start; /usr/sbin/sshd -D
