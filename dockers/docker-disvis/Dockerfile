@@ -1,11 +1,19 @@
 # docker build -t disvis .
 
-FROM lipcomputing/nvidia-ubuntu16.04
+FROM nvidia/opencl:devel
 MAINTAINER Mario David <mariojmdavid@gmail.com>
 LABEL description="Run Disvis application"
 
-RUN ansible-galaxy install indigo-dc.disvis-powerfit && \
-    ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/disvis.yml
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        gcc git python-dev python-pip wget tar \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && cd /home \
+    && pip install setuptools \
+    && pip install cython numpy pyopencl \
+    && git clone https://github.com/geggo/gpyfft.git \
+    && git clone https://github.com/haddocking/disvis.git
 
-EXPOSE 22
-CMD    /etc/init.d/vmcontext start; /usr/sbin/sshd -D
+#    && cd disvis \
+#    && python setup.py install
