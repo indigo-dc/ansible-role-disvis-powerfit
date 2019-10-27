@@ -1,147 +1,73 @@
 [![License](http://img.shields.io/:license-apache-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0.html)
 [![Build Status](https://travis-ci.org/indigo-dc/ansible-role-disvis-powerfit.svg?branch=master)](https://travis-ci.org/indigo-dc/ansible-role-disvis-powerfit)
 
-Role and Dockerfile for disvis and powerfit application
-=======================================================
+# Dockerfile for disvis and powerfit application
 
-Roles and Dockerfiles to install the disvis or powerfit application:
+### **Deprecation notice**:
+The Ansible role is no longer maintained. This repository will
+be used only for the Dockerfiles of Disvis and Powerfit where the dockerhub repository
+points to. The README will refer exclusively to the docker images.
+
+## Introduction
+
+Dockerfiles to install the disvis or powerfit application:
 
 * https://github.com/haddocking/disvis.git
 * https://github.com/haddocking/powerfit.git
 
-The application can be chosen from a role variable.
+The directories `dockers/docker-disvis` and `dockers/docker-powerfit`
+are linked to dockerhub with automatic build of those 2 images. These images can run
+disvis or powerfit either in CPUs, or in GPUs.
 
-Introduction
-------------
+## Run the disvis application
 
-The repository contains ansible-roles that are published in
-ansible galaxy: https://galaxy.ansible.com/indigo-dc/disvis-powerfit/
+Download example input files, in your browser goto:
 
-The directories docker-disvis and docker-powerfit are linked to
-dockerhub with automatic build of those 2 images. These images can run
-disvis or powerfit either in CPUs, or in GPUs, the NVIDIA driver version
-is show below in the the ansible-role default variable
-*nvidia_driver_version*
+* https://nc.ncg.ingrid.pt/index.php/s/4HTNxMQRoCyfEPk
 
-Requirements
-------------
+You will get a tarball `haddock-input.tgz`:
 
-The role LIP-Computing.ansible-role-nvidia should be run before in order
-to install the nvidia driver and is hosted in the repository:
-
-* https://github.com/LIP-Computing/ansible-role-nvidia
-
-Check the README to install and run the role
-
-Role Variables
---------------
-
-The variables that can be passed to this role and a brief description
-about them are as follows.
-
-1. Haddocking application: disvis or powerfit
-   * haddock_app: Default = disvis
-2. URL with opencl headers
-   * opencl_url: Default = http://www.lip.pt/~david/cl_include.tgz
-
-Install the Playbook
---------------------
-
-To install the role:
-
-```
-$ ansible-galaxy install indigo-dc.disvis-powerfit
-```
-
-Run the playbook
-----------------
-
-An example of playbook for the disvis:
-
-```
----
-- hosts: localhost
-  roles:
-    - { role: indigo-dc.disvis-powerfit haddock_app: disvis }
-```
-
-Or execute:
-
-```
-$ ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/disvis.yml
-```
-
-An example of playbook for the powerfit:
-
-```
----
-- hosts: localhost
-  roles:
-    - { role: indigo-dc.disvis-powerfit, haddock_app: powerfit }
-```
-
-Or execute:
-
-```
-$ ansible-playbook /etc/ansible/roles/indigo-dc.disvis-powerfit/tests/powerfit.yml
-```
-
-Run the disvis application
---------------------------
+    tar zxvf haddock-input.tgz
 
 The example runs disvis on the CPU with 2 threads:
 
-```
-$ cd /home
-$ mkdir out
-$ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/lib64
-$ export EX_DIR=/usr/local/disvis/test-cases/PRE5-PUP2-complex
-$ disvis ${EX_DIR}/O14250.pdb ${EX_DIR}/Q9UT97.pdb ${EX_DIR}/restraints.dat -p 2 -a 20.0 -vs 2 -d /home/out
-```
+    $ cd /home
+    $ mkdir out
+    $ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/lib64
+    $ export EX_DIR=/usr/local/disvis/test-cases/PRE5-PUP2-complex
+    $ disvis ${EX_DIR}/O14250.pdb ${EX_DIR}/Q9UT97.pdb ${EX_DIR}/restraints.dat -p 2 -a 20.0 -vs 2 -d /home/out
 
 To run in the GPU:
 
-```
-$ cd /home
-$ mkdir out
-$ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/lib64
-$ export EX_DIR=/usr/local/disvis/test-cases/PRE5-PUP2-complex
-$ disvis ${EX_DIR}/O14250.pdb ${EX_DIR}/Q9UT97.pdb ${EX_DIR}/restraints.dat -g -a 20.0 -vs 2 -d /home/out
-```
+    $ cd /home
+    $ mkdir out
+    $ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/lib64
+    $ export EX_DIR=/usr/local/disvis/test-cases/PRE5-PUP2-complex
+    $ disvis ${EX_DIR}/O14250.pdb ${EX_DIR}/Q9UT97.pdb ${EX_DIR}/restraints.dat -g -a 20.0 -vs 2 -d /home/out
 
-Run the powerfit application
-----------------------------
+## Run the powerfit application
 
 The example runs powerfit on the CPU with 2 threads:
 
-```
-$ cd /home
-$ ./run-powerfitCPU.sh
-```
+    $ cd /home
+    $ ./run-powerfitCPU.sh
 
 To run in the GPU:
 
-```
-$ cd /home
-$ ./run-powerfitGPU.sh
-```
+    $ cd /home
+    $ ./run-powerfitGPU.sh
 
-License
--------
+## License
 
 Apache v2
 
-Author Information
-------------------
+## Author Information
 
-Mario David: <mariojmdavid@gmail.com>
+* Mario David: <mariojmdavid@gmail.com>
+* LIP Lisbon: http://www.lip.pt
+* Indigo DataCloud: https://www.indigo-datacloud.eu/
 
-LIP Lisbon: http://www.lip.pt
-
-Indigo DataCloud: https://www.indigo-datacloud.eu/
-
-Acknowledgments
----------------
+## Acknowledgments
 
 * https://github.com/haddocking/disvis.git
 * https://github.com/haddocking/powerfit.git

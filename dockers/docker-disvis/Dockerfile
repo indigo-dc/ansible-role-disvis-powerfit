@@ -1,7 +1,7 @@
 # docker build -t disvis .
 
 FROM nvidia/opencl:devel
-MAINTAINER Mario David <mariojmdavid@gmail.com>
+LABEL maintainer="Mario David <mariojmdavid@gmail.com>"
 LABEL description="Run Disvis application"
 
 RUN apt-get update \
