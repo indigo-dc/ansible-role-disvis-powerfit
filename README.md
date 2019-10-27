@@ -29,6 +29,26 @@ You will get a tarball `haddock-input.tgz`:
 
     tar zxvf haddock-input.tgz
 
+Run docker image with `docker`:
+
+    docker run -v $HOME/haddock-input:/home/haddock-input --name disvis -it disvis /bin/bash
+
+Now inside the container:
+
+    cd /home/haddock-input/PRE5-PUP2-complex
+    disvis O14250.pdb Q9UT97.pdb restraints.dat -a 20.0 -vs 2
+
+Run docker image with `udocker`:
+
+    udocker run -v $HOME/haddock-input:/home/haddock-input --name disvis -it disvis /bin/bash
+
+Now inside the container:
+
+    cd /home/haddock-input/PRE5-PUP2-complex
+    disvis O14250.pdb Q9UT97.pdb restraints.dat -a 20.0 -vs 2
+
+### To be reviewed
+
 The example runs disvis on the CPU with 2 threads:
 
     $ cd /home
